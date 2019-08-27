@@ -19,6 +19,9 @@ svg {
 #back {
   stroke-width: 0;
 }
+line {
+  stroke-linecap: round;
+}
 text {
   fill: #fff;
   border-width: 0;

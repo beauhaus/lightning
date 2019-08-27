@@ -18,7 +18,8 @@ function gimmeMax(a, b) {
 const width = 1000;
 const height = 1000;
 
-const boltDistance = Math.pow(randInRange(0.25, 3), 2);
+// const boltDistance = 4 * Math.pow(randInRange(0.25, 1.5), 3);
+const boltDistance = 1;
 class Lightning extends Component {
   constructor(props) {
     super(props);
