@@ -1,2 +1,0 @@
-# lightning
-Created with CodeSandbox

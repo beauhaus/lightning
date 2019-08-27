@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100&display=swap");
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  overflow: hidden;
+  background: fuchsia;
+  padding: 0;
+  margin: 0;
+}
+svg {
+  width: 100vw;
+  height: 100vh;
+  stroke: #fff;
+  /* stroke-width: 0.2px; */
+}
+#back {
+  stroke-width: 0;
+}
+text {
+  fill: #fff;
+  border-width: 0;
+  font-size: 1.4px;
+  font-weight: 300;
+  font-family: "Lato", sans-serif;
+}
+line#A-line {
+  /* stroke-width: .8px; */
+}
+line#B-line {
+  /* stroke-width: 1.5px; */
+}
+
+line#C-line {
+  /* stroke-width: 1px; */
+}
+
+line#D-line {
+  /* stroke-width: 0.6px; */
+}
+line#E-line {
+  /* stroke-width: 0.2px; */
+}
+
+rect#back {
+  width: 100%;
+  height: 100%;
+  fill: slategray;
+}
