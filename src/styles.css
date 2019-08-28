@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:100&display=swap");
 
 :root {
-  --iteration: infinite;
-  --boltTime: 3s;
+  --iteration: 1;
+  --boltTime: 1s;
   --delay: 0s;
   --boltWidthMin: 1;
   --boltWidthMax: 4;
@@ -25,9 +25,6 @@ svg {
   width: 100vw;
   height: 100vh;
   stroke: #fff;
-}
-#back {
-  stroke-width: 0;
 }
 
 path {
@@ -124,7 +121,8 @@ text {
 }
 
 rect#back {
+  stroke-width: 0;
   width: 100%;
   height: 100%;
-  fill: slategray;
+  fill: url(#a);
 }

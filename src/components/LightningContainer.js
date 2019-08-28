@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Annotation from "./utils/Annotation";
+// import Annotation from "./utils/Annotation";
 
 import Bolt from "./Bolt";
 
@@ -16,7 +16,6 @@ function gimmeMax(a, b) {
 const width = 1000;
 const height = 1000;
 
-// const boltDistance = 4 * Math.pow(randInRange(0.25, 1.5), 3);
 const boltDistance = 1;
 class Lightning extends Component {
   constructor(props) {
@@ -93,9 +92,7 @@ class Lightning extends Component {
         preserveAspectRatio="none"
         strokeWidth={boltDistance}
       >
-        <rect id="back" x="0" y="0" />
         <Bolt coords={this.state} />
-        <Annotation coords={this.state} />
       </svg>
     );
   }
