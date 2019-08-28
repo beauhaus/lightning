@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-// import Annotation from "./utils/Annotation";
 
 import Bolt from "./Bolt";
-
 import randInRange from "./utils/randInRange";
 
 function gimmeMin(a, b) {
@@ -16,7 +14,6 @@ function gimmeMax(a, b) {
 const width = 1000;
 const height = 1000;
 
-const boltDistance = 1;
 class Lightning extends Component {
   constructor(props) {
     super(props);
@@ -32,8 +29,12 @@ class Lightning extends Component {
   //NOTE: change 100 to "width" var
   componentDidMount() {
     const nodeHeight = height / 5;
-    const xrangeFactor = boltDistance * 50; // should be a function of width ...
-    const A0x = randInRange(1, width); //width
+    /* xrangefactor controls behavior of branches of bolts
+     * so that they aren't too wide at wide screens
+     * and aren't too oblique in small screens
+     */
+    const xrangeFactor = 0.1 * height; //
+    const A0x = randInRange(1, width);
     const ABx = randInRange(
       gimmeMax(A0x - 1 * xrangeFactor, 0),
       gimmeMin(width, A0x + 1 * xrangeFactor)
@@ -87,11 +88,7 @@ class Lightning extends Component {
 
   render() {
     return (
-      <svg
-        viewBox={`0 0 ${width} ${height}`}
-        preserveAspectRatio="none"
-        strokeWidth={boltDistance}
-      >
+      <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none">
         <Bolt coords={this.state} />
       </svg>
     );

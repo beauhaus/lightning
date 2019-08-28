@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:100&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Lato:100&display=swap"); */
 
 :root {
   --iteration: 1;
   --boltTime: 1s;
   --delay: 0s;
-  --boltWidthMin: 1;
-  --boltWidthMax: 4;
+  --boltWidthMin: 0.5;
+  --boltWidthMax: 8;
   --curve: cubic-bezier(1.4, -1, 0.7, 2);
   --dashArray: 10, 20, 10, 20, 5, 15, 3, 13;
 }
@@ -116,8 +116,9 @@ text {
   fill: #fff;
   border-width: 0;
   font-size: 20px;
-  font-weight: 300;
-  font-family: "Lato", sans-serif;
+  letter-spacing: 3px;
+  font-weight: 100;
+  font-family: "Helvetica", sans-serif;
 }
 
 rect#back {

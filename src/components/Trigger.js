@@ -12,22 +12,21 @@ class Trigger extends Component {
   componentWillUnmount() {
     clearTimeout(this.randoTimer);
   }
-  componentWillUpdate() {
+  componentDidUpdate() {
+    var max = 10000;
+    var min = 100;
+    var timer = Math.floor(Math.random() * (max - min) + 1) + min;
     const randoTimer = () => {
-      // var time1to15 = Math.ceil(Math.random(500, 10000) * 15) * 1000;
-      var time1to15 = 15000; // FOR TESTING
-      console.log("one to 15: ", time1to15);
       this.setState(prevState => ({
-        play: !prevState.play
+        play: !prevState.play,
+        timeSpan: timer
       }));
-      setTimeout(randoTimer, time1to15);
     };
-    setTimeout(randoTimer, 5000);
+    setTimeout(randoTimer, timer);
   }
   render() {
     return (
       <g>
-        {/* <rect id="back" x="0" y="0" /> */}
         <text x="400" y="400">
           {this.state.timeSpan}
         </text>
