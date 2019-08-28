@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:100&display=swap");
+
+:root {
+  --iteration: infinite;
+  --boltTime: 3s;
+  --delay: 0s;
+  --boltWidthMin: 1;
+  --boltWidthMax: 4;
+  --curve: cubic-bezier(1.4, -1, 0.7, 2);
+  --dashArray: 10, 20, 10, 20, 5, 15, 3, 13;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -14,37 +25,102 @@ svg {
   width: 100vw;
   height: 100vh;
   stroke: #fff;
-  /* stroke-width: 0.2px; */
 }
 #back {
   stroke-width: 0;
 }
-line {
+
+path {
   stroke-linecap: round;
+  fill: none;
+  stroke-width: 1;
+  stroke: #fff;
+  opacity: 0;
 }
+.bolt {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  opacity: 1;
+  stroke-width: var(--boltWidthMin);
+  animation-name: bolt-flash;
+  animation-duration: var(--boltTime);
+  animation-timing-function: var(--curve);
+  animation-delay: var(--delay);
+  animation-direction: forwards;
+  animation-iteration-count: var(--iteration);
+}
+.decayer {
+  /* opacity: 0; */
+  stroke-width: var(--boltWidthMin);
+  stroke-dasharray: var(--dashArray);
+  animation-name: decay-flash;
+  animation-delay: var(--delay);
+  animation-iteration-count: var(--iteration);
+  animation-duration: var(--boltTime);
+  animation-timing-function: var(--curve);
+  animation-direction: forwards;
+}
+@keyframes bolt-flash {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+    stroke-width: var(--boltWidthMin);
+  }
+  14% {
+    stroke-dashoffset: 0;
+  }
+
+  25% {
+    opacity: 1;
+    stroke-width: var(--boltWidthMax);
+  }
+  40% {
+    opacity: 1;
+  }
+
+  50% {
+    stroke-width: var(--boltWidthMin);
+  }
+  75% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes decay-flash {
+  0% {
+    opacity: 0;
+    stroke-width: var(--boltWidthMin);
+  }
+  25% {
+    /* opacity: 0; */
+    stroke-width: var(--boltWidthMax);
+  }
+  50% {
+    opacity: 1;
+    stroke-width: var(--boltWidthMin);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    stroke-width: var(--boltWidthMin);
+  }
+}
+
+/*ANIM OF LINES */
+/* transition: [property] [duration] [timing-function] [delay]; */
+
 text {
   fill: #fff;
   border-width: 0;
-  font-size: 1.4px;
+  font-size: 20px;
   font-weight: 300;
   font-family: "Lato", sans-serif;
-}
-line#A-line {
-  /* stroke-width: .8px; */
-}
-line#B-line {
-  /* stroke-width: 1.5px; */
-}
-
-line#C-line {
-  /* stroke-width: 1px; */
-}
-
-line#D-line {
-  /* stroke-width: 0.6px; */
-}
-line#E-line {
-  /* stroke-width: 0.2px; */
 }
 
 rect#back {

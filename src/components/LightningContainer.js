@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import ALine from "./ALine";
-import BLine from "./BLine";
-import CLine from "./CLine";
-import DLine from "./DLine";
-import ELine from "./ELine";
+import Annotation from "./utils/Annotation";
 
-import randInRange from "./randInRange";
+import Bolt from "./Bolt";
+
+import randInRange from "./utils/randInRange";
 
 function gimmeMin(a, b) {
   return a > b ? b : a;
@@ -59,7 +57,6 @@ class Lightning extends Component {
     );
 
     const yRange = 1 * nodeHeight;
-    console.log(4 + 2 * 3);
     const A0y = 0;
     const ABy = randInRange(
       gimmeMax(nodeHeight - yRange, A0y + 3),
@@ -88,8 +85,8 @@ class Lightning extends Component {
       E0Joint: { x: E0x, y: E0y }
     }));
   }
+
   render() {
-    const { A0Joint, ABJoint, BCJoint, CDJoint, DEJoint, E0Joint } = this.state;
     return (
       <svg
         viewBox={`0 0 ${width} ${height}`}
@@ -97,11 +94,8 @@ class Lightning extends Component {
         strokeWidth={boltDistance}
       >
         <rect id="back" x="0" y="0" />
-        <ALine top={A0Joint} bot={ABJoint} />
-        <BLine top={ABJoint} bot={BCJoint} />
-        <CLine top={BCJoint} bot={CDJoint} />
-        <DLine top={CDJoint} bot={DEJoint} />
-        <ELine top={DEJoint} bot={E0Joint} />
+        <Bolt coords={this.state} />
+        <Annotation coords={this.state} />
       </svg>
     );
   }

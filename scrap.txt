@@ -1,0 +1,12 @@
+<svg viewBox = "0 0 1000 1000" preserveAspectRatio="none">
+    <filter id = "i1">
+        <feGaussianBlur in = "SourceAlpha" stdDeviation = "4" result = "blur1"/>
+        <feSpecularLighting result = "specOut" in = "blur1" specularExponent = "10" lighting-color = "#fff">
+            <fePointLight x = "450" y = "100" z = "550"/>
+        </feSpecularLighting>
+        <feComposite in = "SourceGraphic" in2 = "specOut" operator = "arithmetic" k1 = "0" k2 = "1" k3 = "1" k4 = "0"/>
+    </filter>
+    <g  filter = "url(#i1)">
+          <rect id="back" x="0" y="0" />
+    </g>
+</svg>

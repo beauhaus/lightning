@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LightningContainer from "./components/LightningContainer";
+import Trigger from "./components/Trigger";
 
 import "./styles.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <LightningContainer />
-    </div>
+    <svg viewBox="0 0 1000 1000" className="App">
+      <Trigger />
+    </svg>
   );
 };
 
